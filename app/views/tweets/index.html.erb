@@ -1,0 +1,9 @@
+<h1>つぶやき一覧</h1>
+<p><%= notice %></p>
+<% @tweets.each do |tweet| %>
+    <p>つぶやき：<%= tweet.content %></p>
+    <%= link_to '編集する', edit_tweet_path(tweet.id) %>
+    <%= link_to 'つぶやきを削除する', tweet_path(tweet.id), data: { confirm: '本当に削除して宜しいですか？' }, method: :delete %>
+<% end %>
+
+<%= link_to "つぶやく", new_tweet_path %>
