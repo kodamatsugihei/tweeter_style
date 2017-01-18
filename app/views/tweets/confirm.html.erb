@@ -1,0 +1,13 @@
+<h3>以下の内容でつぶやきますか？</h3>
+
+<%= form_for(@tweet) do |f| %>
+    <%= f.hidden_field :content %>
+    
+    <p>つぶやき：<%= @tweet.content %></p>
+    
+    <%= f.submit "登録する" %>
+<% end %>
+<%= form_for(@tweet, url: new_tweet_path, method: 'get') do |f| %>
+    <%= f.hidden_field :content %>
+    <%= f.submit "戻る", name: 'back' %>
+<% end %>
