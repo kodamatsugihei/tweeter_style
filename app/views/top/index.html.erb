@@ -1,0 +1,29 @@
+<%= render 'tweets/header' %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- パネルで囲む -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Menu & 開発目的
+                </div>
+                <!-- 敢えてbodyを作らないことで、メニューを詰める -->
+                <!-- <div class="panel-body"> -->
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="disabled"><a href=""><i class="glyphicon glyphicon-glass"></i> 通知</a></li>
+                    <li class="disabled"><a href=""><i class="glyphicon glyphicon-envelope"></i> メッセージ</a></li>
+                    <li class="disabled"><a href=""><i class="glyphicon glyphicon-user"></i> Mypage</a></li>
+                    <li><a href=<%= new_tweet_path %>><i class="glyphicon glyphicon-pencil"></i> ツイート</a></li>
+                </ul>
+                <div class="panel panel-body">
+                    <p>このサイトはruby on railsの練習に作成されました。</p>
+                    <p>topページです</p>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <%= image_tag 'images.jpeg' %>
+        </div>
+    </div>
+</div>

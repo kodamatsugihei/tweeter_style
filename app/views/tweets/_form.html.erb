@@ -1,19 +1,31 @@
-<%= form_for(@tweet, url: choose_new_or_edit) do |f| %>
-    <% if @tweet.errors.any? %>
-        <div id="error_explanation">
-        <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
-        <ul>
-            <% @tweet.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+<%= render 'header' %>
+<div class="container">
+    <div class="row">
+        <%= form_for(@tweet, url: choose_new_or_edit) do |f| %>
+            <% if @tweet.errors.any? %>
+                <div id="error_explanation">
+                <h2><p class="text-danger"><%= @tweet.errors.count %>件のエラーがあります。</p></h2>
+                <ul style="list-style:none;">
+                    <% @tweet.errors.full_messages.each do |msg| %>
+                        <li><p class="text-danger"><%= msg %></p></li>
+                    <% end %>
+                </ul>
+                </div>
             <% end %>
-        </ul>
-        </div>
-    <% end %>
-    
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-    <br>
-    <%= f.submit %>
-<% end %>
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">
+                    <h2>ツイートする</h2>
+                </div>
+                <div class="panel panel-body">
+                    <%= f.label 'ツイート記入欄', :style => 'width:100%' %>
+                    <%= f.text_field :content, :style => 'width:100%' %>
+                </div>
+                <div class="panel panel-footer">
+                    <%= f.submit :class => 'btn btn-lg btn-success btn-block' %>
+                </div>
+            </div>
+        <% end %>
 
 <%= link_to "つぶやき一覧に戻る", tweets_path %>
+    </div>
+</div>
